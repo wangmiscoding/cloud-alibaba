@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    ##服务名称
+    name: gateway-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          ###开启一服务id去注册中心上获取转发地址
+          enabled: true
+      routes:
+        - id: www
+          uri: https://baidu.com/
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+
+
+
